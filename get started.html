@@ -1,0 +1,528 @@
+<html>
+
+<head>
+
+<style type="text/css">
+	
+	*{box-sizing: border-box;}
+	
+	
+	body, html {
+	
+		height: 100%;
+	
+		margin: 0;
+
+		font-family: Arial, Helvetica, sans-serif;
+	
+		background-color: lightblue;
+		background-image: url("bg8.jpg");
+	}
+	
+
+	
+	.header {
+	
+		overflow: hidden;
+	background-image: url("bg8.jpg");
+	/*background-color: lightblue;*/
+	padding: 5px 10px;
+	}
+	
+		
+	
+	.header a {
+	
+		float: left;
+	
+		color: black;
+	
+		text-align: center;
+	
+		padding: 12px;
+	
+		text-decoration: none;
+	
+		font-size: 18px; 
+	
+		line-height: 25px;
+	
+		border-radius: 4px;
+	}
+	
+
+	
+	.header a.logo {
+	
+		font-size: 25px;
+	
+		font-weight: bold;
+	
+		background-image: url("yog.png");
+	
+		background-repeat: no-repeat;
+	
+		width: 140px;
+	
+		/*background-size: cover;*/
+	
+		background-position: center;
+	}
+	
+	
+	
+	.header a:hover {
+	
+		background-color: black;
+	
+		color: white;
+	}
+
+	
+	
+	.header a.active {
+	
+		background-color: black;
+	
+		color: white;
+	}
+	
+	
+
+	.header-right {
+	
+		float: right;
+}
+	
+	
+
+	
+	
+	
+	
+	.inps{
+	
+		width: 50%;
+	
+		background-color: grey;
+	
+		color: white;
+	
+		padding: 14px 20px;
+	
+		margin: 8px 0;
+			
+		border: none;
+	
+		border-radius: 4px;
+	
+		cursor: pointer;
+}
+	.inp{
+		width: 50%;
+	
+		padding: 12px 20px;
+	
+		margin: 8px 0;
+		
+		display: inline-block;
+	
+		border: 1px solid grey;
+	
+		border-radius: 4px;
+			
+		box-sizing: border-box;
+		resize: none;
+	}
+
+	.mrg{
+		text-align: left;
+		margin-left : 500px;
+	}
+	.mrg2{
+		text-align: left;
+		margin-left : 100px;
+	}
+
+	.mrg3{
+		text-align: left;
+		margin-left : 140px;
+	}
+
+	input[type=submit]:hover {
+	
+		background-color: grey;
+	}
+
+
+	.header-center{
+		text-align:center;
+
+		}	
+
+	.link{
+		text-decoration:none;
+		padding-right:30px;
+	}
+</style>
+
+</head>
+
+<body>
+	
+	<div class="header">
+	
+		<a href="WEB PAGE.html" class="logo"> </a>
+	
+		<div class="header-right">
+		<a href="about us.html" >About Us</a>
+	
+		
+
+		<a href="Feedback.html">Feedback</a>
+		<a href="who its for.html">Who It's For</a>
+	
+			
+	
+		</div>
+	
+	</div>
+
+	<div class="header-center">
+	<h1>We'd love to hear from you</h1>
+	
+	
+	<font size="5">Comments, suggestions and questions are always welcome</font><br><br>
+	
+	
+	<form class="mrg">
+
+       <div class="form-group">
+            <label for="contact-name">Name &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+            <input type="text" class="form-control inp" id="contact-name" name="name" placeholder="Enter your name.." onkeyup='validateName()'>
+            <span class='error-message' id='name-error'></span>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-phone">Phone Number&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+            <input type="tel" class="form-control inp" id="contact-phone" name="phone" placeholder="Ex: 1231231234" onkeyup='validatePhone()'>
+            <span class='error-message' id='phone-error'></span>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-email">Email address&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+            <input type="email" class="form-control inp" id="contact-email" name="email" placeholder="Enter Email" onkeyup='validateEmail()'>
+            <span class='error-message' id='email-error'></span>
+          </div>   
+          <div class="form-group">
+            <label for="contact-add">Address &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp</label>
+            <input type="text" class="form-control inp" id="contact-add" name="add" placeholder="Enter your Address.." onkeyup='validateadd()'>
+            <span class='error-message' id='add-error'></span>
+          </div>
+
+          <div class="form-group">
+            <label for='contactMessage'>Product Discription</label>
+            <textarea class="form-control inp" rows="5" id='contact-message'  name='message'  placeholder="Enter a brief message" onkeyup='validateMessage()'></textarea>
+            <span class='error-message' id='message-error'></span>
+          </div>
+          Files: <input type="file"  class="mrg2" id="files" name="files" multiple accept="image/*"><br/>
+
+        <div id="selectedFiles"></div>
+        
+        <select id="recidient" onchange="update()" class="inp mrg3">
+            <option selected="selected">Select recidient</option>
+            <option value="1">Orphan_Age</option>
+            <option value="2">Old_Age</option>
+        </select>
+
+        <select id="place" class="inp mrg3">
+            <option selected="selected">Select place</option>
+        </select>
+
+
+
+
+        <button onclick='validateForm()' class="btn btn-default inps">Submit</button>
+        <span class='error-message' id='submit-error'></span>
+
+      </form>
+
+	
+
+	<font size="5">or contact to us at:<br></font>
+    
+	<font color="blue">91-8619258978</font><br>
+   
+	<font color="blue"> 91-7310358192</font>
+<br><br>
+	
+
+	</div>
+
+
+
+	 
+
+
+
+
+
+
+
+
+      <script type="text/javascript">
+      	function validateName() {
+
+  var name = document.getElementById('contact-name').value;
+
+  if(name.length == 0) {
+
+    producePrompt('Name is required', 'name-error' , 'red')
+    return false;
+
+  }
+
+  if (!name.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)) {
+
+    producePrompt('First and last name, please.','name-error', 'red');
+    return false;
+
+  }
+
+  producePrompt('Valid', 'name-error', 'green');
+  return true;
+
+}
+
+      	function validateadd() {
+
+  var add = document.getElementById('contact-add').value;
+
+  if(add.length == 0) {
+
+    producePrompt('Address is required', 'add-error' , 'red')
+    return false;
+
+  }
+
+  if (!add.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)) {
+
+    producePrompt('Valid address, please.','add-error', 'red');
+    return false;
+
+  }
+
+  producePrompt('Valid', 'add-error', 'green');
+  return true;
+
+}
+
+
+
+
+function validatePhone() {
+
+  var phone = document.getElementById('contact-phone').value;
+
+    if(phone.length == 0) {
+      producePrompt('Phone number is required.', 'phone-error', 'red');
+      return false;
+    }
+
+    if(phone.length != 10) {
+      producePrompt('Not Valid.', 'phone-error', 'red');
+      return false;
+    }
+
+    if(!phone.match(/^[0-9]{10}$/)) {
+      producePrompt('Only digits, please.' ,'phone-error', 'red');
+      return false;
+    }
+
+    producePrompt('Valid', 'phone-error', 'green');
+    return true;
+
+}
+
+function validateEmail () {
+
+  var email = document.getElementById('contact-email').value;
+
+  if(email.length == 0) {
+
+    producePrompt('Email Invalid','email-error', 'red');
+    return false;
+
+  }
+
+  if(!email.match(/^\w+([\.-]?\w+)*\w+([\.-]?)@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+
+    producePrompt('Email Invalid', 'email-error', 'red');
+    return false;
+
+  }
+
+  producePrompt('Valid', 'email-error', 'green');
+  return true;
+
+}
+
+function validateMessage() {
+  var message = document.getElementById('contact-message').value;
+  var required = 30;
+  var left = required - message.length;
+
+  if (left > 0) {
+    producePrompt(left + ' more characters required','message-error','red');
+    return false;
+  }
+
+  producePrompt('Valid', 'message-error', 'green');
+  return true;
+
+}
+
+function validateForm() {
+  if (!validateName() || !validatePhone() || !validateEmail() || !validateMessage() || !validateadd() || !update()) {
+    alert("Please Fill all the details Correctly");
+    jsShow('submit-error');
+    producePrompt('Please fix errors to submit.', 'submit-error', 'red');
+    setTimeout(function(){jsHide('submit-error');}, 2000);
+  }
+  else {
+  	window.open('file:laststep.html')
+
+  }
+}
+
+function jsShow(id) {
+  document.getElementById(id).style.display = 'block';
+}
+
+function jsHide(id) {
+  document.getElementById(id).style.display = 'none';
+}
+
+
+
+
+function producePrompt(message, promptLocation, color) {
+
+  document.getElementById(promptLocation).innerHTML = message;
+  document.getElementById(promptLocation).style.color = color;
+
+
+}
+      </script>
+
+	<script>
+	var selDiv = "";
+		
+	document.addEventListener("DOMContentLoaded", init, false);
+	
+	function init() {
+		document.querySelector('#files').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles");
+	}
+		
+	function handleFileSelect(e) {
+		
+		if(!e.target.files || !window.FileReader) return;
+
+		selDiv.innerHTML = "";
+		
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			var f = files[i];
+			if(!f.type.match("image.*")) {
+				return;
+			}
+
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				var html = "<img src=\"" + e.target.result + "\">" + f.name + "<br clear=\"left\"/>";
+				selDiv.innerHTML += html;				
+			}
+			reader.readAsDataURL(f); 
+		});
+		
+	}
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<hr>
+	<span style="padding-left:2%;padding-bottom:2%;">&copy; YOGDAAN &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDonations through this platform is easy.</span>
+	<br>
+	<b>Support</b><br>
+	<a href="privacy policy.html">Privacy Policy</a><br>
+	<a href="terms.html">Terms</a><br>
+	<a href="Feedback.html">Feedback</a><br>
+	<a href="about us.html">About Us</a><br>
+	 <footer id="footer"></footer>
+
+
+
+
+
+    <script type="text/javascript">
+        function update()
+        {
+            var Orphan_Age=["Dayanand Bal Sadan", "I-India", "S O S Children`s Village", "Shanti Bhavan"];
+            var Old_Age=["Navachaitanya", "Guru Vishram Vridh Ashram", "Anandashram", "Helpage Elders Village"];
+            var recidients=document.getElementById("recidient");
+            var plc=document.getElementById("place");
+            var selected=recidients.value;
+            var pSelected=plc.value;
+            var html='<option selected="selected">Select place</option>';
+            if(selected === "1")
+            {
+                for(var i=0; i < Orphan_Age.length; i++)
+                {
+                    html+='<option value="' + Orphan_Age[i] + '">' + Orphan_Age[i] + '</option>';
+                }
+            }
+            else if(selected === "2")
+            {
+                for(var j=0; j < Old_Age.length; j++)
+                {
+                    html+='<option value="' + Old_Age[j] + '">' + Old_Age[j] + '</option>';
+                }
+            }
+            plc.innerHTML=html;
+            if ((selected === "1" || selected === "2")){
+            	return true;
+            }
+            else return false;
+            
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
